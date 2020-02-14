@@ -1,12 +1,16 @@
-DROP TABLE user;
+DROP DATABASE IF EXISTS notes;
+
+CREATE DATABASE notes;
+
+USE notes;
 
 CREATE TABLE user
 (
-    username VARCHAR2(40),
-    password VARCHAR2(40) NOT NULL,
-    firstname VARCHAR2(40) NOT NULL,
-    lastname VARCHAR2(40) NOT NULL,
-    email VARCHAR2(120) NOT NULL,
+    username VARCHAR(40),
+    password VARCHAR(40) NOT NULL,
+    firstname VARCHAR(40) NOT NULL,
+    lastname VARCHAR(40) NOT NULL,
+    email VARCHAR(120) NOT NULL,
     PRIMARY KEY (username),
     UNIQUE (email)
 );
