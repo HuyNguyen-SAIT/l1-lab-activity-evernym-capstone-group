@@ -26,15 +26,17 @@
                 <th class="tg-0lax">Edit</th>
             </tr>
             <tr>
-                <td class="tg-0lax"></td>
-                <td class="tg-0lax"></td>
-                <td class="tg-0lax"></td>
-                <td class="tg-0lax"></td>
-                <td class="tg-0lax"></td>
-                <td class="tg-0lax"></td>
+                <td class="tg-0lax">${user}</td>
+                <td class="tg-0lax">${fname}</td>
+                <td class="tg-0lax">${lname}</td>
+                <td class="tg-0lax">${email}</td>
+                <td class="tg-0lax">
+                    <input type="submit" value="Delete"/></td>
+                <td class="tg-0lax">
+                    <input type="submit" value="Edit"/></td>
             </tr>
         </table>
-        
+
         <h3>Add User</h3>
         Username: <input type="text" name="userName"/>
         <br/>
