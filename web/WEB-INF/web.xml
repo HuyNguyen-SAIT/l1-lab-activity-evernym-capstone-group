@@ -11,6 +11,10 @@
         <servlet-name>Part2Servlet</servlet-name>
         <servlet-class>servlets.Part2Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageUsersServlet</servlet-name>
+        <servlet-class>servlets.ManageUsersServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Part1Servlet</servlet-name>
         <url-pattern>/part1</url-pattern>
@@ -18,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>Part2Servlet</servlet-name>
         <url-pattern>/part2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageUsersServlet</servlet-name>
+        <url-pattern>/ManageUsersServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
