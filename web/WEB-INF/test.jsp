@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,17 +27,23 @@
                 <th class="tg-0lax">Edit</th>
             </tr>
             <tr>
+            <c:forEach var="user" items="${usersList}" varStatus="status">
                 <td class="tg-0lax">${user}</td>
                 <td class="tg-0lax">${fname}</td>
                 <td class="tg-0lax">${lname}</td>
                 <td class="tg-0lax">${email}</td>
                 <td class="tg-0lax">
+                    <input type="hidden" name="action" value="delete" />
                     <input type="submit" value="Delete"/></td>
                 <td class="tg-0lax">
+                    <input type="hidden" name="action" value="edit" />
                     <input type="submit" value="Edit"/></td>
+            </c:forEach>
             </tr>
         </table>
-
+        </form>
+        </br>           
+        <form method="POST">
         <h3>Add User</h3>
         Username: <input type="text" name="userName"/>
         <br/>
@@ -50,6 +57,6 @@
         <br/>
         <input type="submit" value="Save"/>
         <form/>
-        <br/>
-    </body>
+    <br/>
+</body>
 </html>
