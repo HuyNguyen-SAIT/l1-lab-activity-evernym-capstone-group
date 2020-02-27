@@ -32,7 +32,7 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
+            String dbURL = "jdbc:mysql://localhost:3306/notes?zeroDateTimeBehavior=convertToNull";
             String dbUsername = "root";
             String dbPassword = "password";
             
@@ -69,7 +69,7 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
+            String dbURL = "jdbc:mysql://localhost:3306/notes?zeroDateTimeBehavior=convertToNull";
             String dbUsername = "root";
             String dbPassword = "password";
             
@@ -101,7 +101,7 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
+            String dbURL = "jdbc:mysql://localhost:3306/notes?zeroDateTimeBehavior=convertToNull";
             String dbUsername = "root";
             String dbPassword = "password";
             
@@ -140,7 +140,7 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
+            String dbURL = "jdbc:mysql://localhost:3306/notes?zeroDateTimeBehavior=convertToNull";
             String dbUsername = "root";
             String dbPassword = "password";
             
@@ -186,7 +186,7 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
+            String dbURL = "jdbc:mysql://localhost:3306/notes?zeroDateTimeBehavior=convertToNull";
             String dbUsername = "root";
             String dbPassword = "password";
             
