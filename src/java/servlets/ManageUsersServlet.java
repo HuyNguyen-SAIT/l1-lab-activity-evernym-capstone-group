@@ -44,13 +44,49 @@ public class ManageUsersServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
-        //processRequest(request, response);
+        String action = request.getParameter("action");
+        String j_userName = request.getParameter("userName");
+        String j_firstName = request.getParameter("firstName");
+        String j_lastName = request.getParameter("lastName");
+        String j_password = request.getParameter("password");
+        String j_email = request.getParameter("email");
+        
+        if (action.equals("delete"))
+        {
+            try 
+            {
+                UserService.delete(j_userName);
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            response.sendRedirect(request.getContextPath() + "/manageUsers");  
+        }
+        else if (action.equals("edit"))
+        {
+            
+           
+        }
+        else if (action.equals("save"))
+        {
+            try 
+            {
+                UserService.insert(j_userName, j_firstName, j_lastName, j_password, j_email);
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+           response.sendRedirect(request.getContextPath() + "/manageUsers");            
+        }
     }
 
     @Override
     public String getServletInfo() 
     {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
