@@ -5,6 +5,7 @@
  */
 package services;
 
+import dataaccess.ConnectionPool;
 import servlets.ManageUsersServlet;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,10 +24,11 @@ import models.User;
 public class UserService 
 {
     private static ArrayList<User> usersList = new ArrayList<>();
+    private static ConnectionPool pool = ConnectionPool.getInstance();
     
     public static void insert(String username, String firstname, String lastname, String password, String email) throws SQLException
     {
-        Connection connection = null;
+        Connection connection = pool.getConnection();
         
         try 
         {
@@ -57,12 +59,13 @@ public class UserService
             Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        connection.close();
+        //connection.close();
+        pool.freeConnection(connection);
     }
     
     public static void delete(String username) throws SQLException
     {
-        Connection connection = null;
+        Connection connection = pool.getConnection();
         
         try 
         {
@@ -89,12 +92,12 @@ public class UserService
             Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        connection.close();
+        pool.freeConnection(connection);
     }
     
     public static void update(String username, String firstname, String lastname, String password, String email) throws SQLException
     {
-        Connection connection = null;
+        Connection connection = pool.getConnection();
         
         try 
         {
@@ -127,17 +130,17 @@ public class UserService
             Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        connection.close();
+        pool.freeConnection(connection);
     }
     
     public static User getUser(String username)
     {
-        Connection connection = null;
+        Connection connection = pool.getConnection();
         User oneUser = null;
         
         try 
         {
-             String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
+            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
             String dbUsername = "root";
             String dbPassword = "password";
             
@@ -172,12 +175,13 @@ public class UserService
             Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        pool.freeConnection(connection);
         return oneUser;
     }
     
     public static ArrayList<User> loadList() throws SQLException
     {
-        Connection connection = null;
+        Connection connection = pool.getConnection();
         usersList.clear();
         
         try 
@@ -216,7 +220,8 @@ public class UserService
         {
             Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+        
+        pool.freeConnection(connection);
         return usersList;
     }
 }

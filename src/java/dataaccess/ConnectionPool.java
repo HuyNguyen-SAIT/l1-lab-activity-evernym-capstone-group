@@ -14,40 +14,55 @@ import javax.sql.DataSource;
  *
  * @author Ben Talbot
  */
-public class ConnectionPool {
-    
+public class ConnectionPool 
+{
     private static ConnectionPool pool = null;
     private static DataSource dataSource = null;
     
-    private ConnectionPool() {
-        try {
+    private ConnectionPool() 
+    {
+        try 
+        {
             InitialContext initContext = new InitialContext();
             dataSource = (DataSource) initContext.lookup("java:/comp/env/jdbc/notesdb");
-        } catch (NamingException e) {
+        } 
+        catch (NamingException e) 
+        {
             System.out.println(e);
         }
     }
     
-    public static synchronized ConnectionPool getInstance() {
-        if (pool == null) {
+    public static synchronized ConnectionPool getInstance() 
+    {
+        if (pool == null) 
+        {
             pool = new ConnectionPool();
         }
+        
         return pool;
     }
     
-    public Connection getConnection() {
-        try {
+    public Connection getConnection() 
+    {
+        try 
+        {
             return dataSource.getConnection();
-        } catch(SQLException e) {
+        } 
+        catch(SQLException e) 
+        {
             System.out.println(e);
             return null;
         }
     }
     
-    public void freeConnection(Connection connection) {
-        try {
+    public void freeConnection(Connection connection) 
+    {
+        try 
+        {
             connection.close();
-        } catch(SQLException e) {
+        } 
+        catch(SQLException e) 
+        {
             System.out.println(e);
         }
     }
