@@ -18,7 +18,7 @@ import models.User;
 
 /**
  *
- * @author 810783
+ * @author Clara Lee 810783
  */
 public class UserService 
 {

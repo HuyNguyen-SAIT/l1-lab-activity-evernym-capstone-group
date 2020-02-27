@@ -1,3 +1,5 @@
+-- Author: Rocky Leishman 
+
 DROP DATABASE IF EXISTS notes;
 
 CREATE DATABASE notes;

@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author 797138
+ * @author Talha Khamoor 797138
  */
 public class ManageUsersServlet extends HttpServlet 
 {
