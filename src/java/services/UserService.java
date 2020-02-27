@@ -5,7 +5,7 @@
  */
 package services;
 
-import dataaccess.DatabaseServlet;
+import servlets.ManageUsersServlet;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -54,7 +54,7 @@ public class UserService
         } 
         catch (ClassNotFoundException ex) 
         {
-            Logger.getLogger(DatabaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         connection.close();
@@ -86,7 +86,7 @@ public class UserService
         } 
         catch (ClassNotFoundException ex) 
         {
-            Logger.getLogger(DatabaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         connection.close();
@@ -124,7 +124,7 @@ public class UserService
         } 
         catch (ClassNotFoundException ex) 
         {
-            Logger.getLogger(DatabaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         connection.close();
@@ -169,7 +169,7 @@ public class UserService
         } 
         catch (ClassNotFoundException ex) 
         {
-            Logger.getLogger(DatabaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return oneUser;
@@ -214,7 +214,7 @@ public class UserService
         } 
         catch (ClassNotFoundException ex) 
         {
-            Logger.getLogger(DatabaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
       
         return usersList;

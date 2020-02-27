@@ -24,19 +24,27 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
-
+    private String password;
     public User() {
         propertySupport = new PropertyChangeSupport(this);
     }
 
-    public User(String userName, String firstName, String lastName, String email) {
+    public User(String userName, String firstName, String lastName,String password, String email) {
         super();
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
     }
-
+    
+    public String getPassword(){
+        return password;
+    }
+    
+    public void setPassword(String password){
+        this.password = password;
+    }
     public String getUserName() {
         return userName;
     }
