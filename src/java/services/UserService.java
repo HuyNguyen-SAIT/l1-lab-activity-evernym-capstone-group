@@ -79,13 +79,6 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
-            String dbUsername = "root";
-            String dbPassword = "password";
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
-            
             String preparedQuery = "UPDATE user " + 
                                    "SET Firstname = ?, Lastname = ?, Password = ?, Email = ?" + 
                                    "WHERE Username = ?";
@@ -103,10 +96,6 @@ public class UserService
         {
             e.printStackTrace();
         } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         pool.freeConnection(connection);
     }

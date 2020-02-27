@@ -16,6 +16,7 @@ import models.User;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,6 +25,7 @@ import java.util.logging.Logger;
 public class ManageUsersServlet extends HttpServlet 
 {
     private static ArrayList<User> userList;
+    private HttpSession session = null;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
@@ -37,7 +39,9 @@ public class ManageUsersServlet extends HttpServlet
             Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        request.setAttribute("UserList", userList);
+        //request.setAttribute("UserList", userList);
+        session = request.getSession();
+        session.setAttribute("UserList", userList);
         getServletContext().getRequestDispatcher("/WEB-INF/manageUsers.jsp").forward(request, response);
     }
 
@@ -66,13 +70,20 @@ public class ManageUsersServlet extends HttpServlet
         }
         else if (action.equals("edit"))
         {
+            System.out.println(j_firstName);
+            request.setAttribute("userName1", j_userName);
+            request.setAttribute("firstName1", j_firstName);
+            request.setAttribute("lastName1", j_lastName);
+            request.setAttribute("password1", j_password);
+            request.setAttribute("email1", j_email);
             
-           
+            getServletContext().getRequestDispatcher("/WEB-INF/manageUsers.jsp").forward(request, response);
         }
         else if (action.equals("save"))
         {
             try 
             {
+                System.out.println(j_firstName);
                 UserService.insert(j_userName, j_firstName, j_lastName, j_password, j_email);
             } 
             catch (SQLException ex) 
