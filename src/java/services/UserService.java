@@ -32,13 +32,6 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
-            String dbUsername = "root";
-            String dbPassword = "password";
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
-            
             String preparedQuery = "INSERT INTO user VALUES(?, ?, ?, ?, ?)";
             
             PreparedStatement ps = connection.prepareStatement(preparedQuery);
@@ -54,10 +47,6 @@ public class UserService
         {
             e.printStackTrace();
         } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         //connection.close();
         pool.freeConnection(connection);
@@ -69,13 +58,6 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
-            String dbUsername = "root";
-            String dbPassword = "password";
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
-            
             String preparedQuery = "DELETE FROM user WHERE Username = ?";
 
             PreparedStatement ps = connection.prepareStatement(preparedQuery);
@@ -87,10 +69,6 @@ public class UserService
         {
             e.printStackTrace();
         } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         pool.freeConnection(connection);
     }
@@ -140,13 +118,6 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
-            String dbUsername = "root";
-            String dbPassword = "password";
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
-            
             String preparedSQL = "SELECT * FROM USER WHERE Username = ?";
 
             PreparedStatement ps = connection.prepareStatement(preparedSQL);
@@ -170,10 +141,6 @@ public class UserService
         {
             e.printStackTrace();
         } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         pool.freeConnection(connection);
         return oneUser;
@@ -186,13 +153,6 @@ public class UserService
         
         try 
         {
-            String dbURL = "jdbc:mysql://localhost:3306/notesdb?zeroDateTimeBehavior=convertToNull";
-            String dbUsername = "root";
-            String dbPassword = "password";
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
-            
             String preparedSQL = "SELECT * FROM USER";
 
             PreparedStatement ps = connection.prepareStatement(preparedSQL);
@@ -216,10 +176,6 @@ public class UserService
         {
             e.printStackTrace();
         } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(ManageUsersServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         pool.freeConnection(connection);
         return usersList;
