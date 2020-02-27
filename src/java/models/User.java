@@ -12,24 +12,21 @@ import java.io.Serializable;
  *
  * @author 806935
  */
-public class User implements Serializable {
-
-    public static final String PROP_SAMPLE_PROPERTY = "sampleProperty";
-
-    private String sampleProperty;
-
-    private PropertyChangeSupport propertySupport;
-
+public class User implements Serializable 
+{
     private String userName;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
-    public User() {
-        propertySupport = new PropertyChangeSupport(this);
+    
+    public User() 
+    {
+        ;
     }
 
-    public User(String userName, String firstName, String lastName,String password, String email) {
+    public User(String userName, String firstName, String lastName,String password, String email) 
+    {
         super();
         this.userName = userName;
         this.firstName = firstName;
@@ -38,66 +35,59 @@ public class User implements Serializable {
         this.password = password;
     }
     
-    public String getPassword(){
+    public String getPassword()
+    {
         return password;
     }
     
-    public void setPassword(String password){
+    public void setPassword(String password)
+    {
         this.password = password;
     }
-    public String getUserName() {
+    
+    public String getUserName() 
+    {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUserName(String userName) 
+    {
         this.userName = userName;
     }
 
-    public String getFirstName() {
+    public String getFirstName() 
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) 
+    {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public String getLastName() 
+    {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) 
+    {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
+    public String getEmail() 
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) 
+    {
         this.email = email;
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return userName + " " + firstName + " " + lastName + " " + email;
     }
-
-    public String getSampleProperty() {
-        return sampleProperty;
-    }
-
-    public void setSampleProperty(String value) {
-        String oldValue = sampleProperty;
-        sampleProperty = value;
-        propertySupport.firePropertyChange(PROP_SAMPLE_PROPERTY, oldValue, sampleProperty);
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        propertySupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        propertySupport.removePropertyChangeListener(listener);
-    }
-
 }

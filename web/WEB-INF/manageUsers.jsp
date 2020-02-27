@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,42 +15,53 @@
     <body>
         <h1>Manage Users</h1>
         <br/>
-        <form method="POST"/>
-        <h3>Users</h3>
-        <table class="tg">
-            <tr>
-                <th class="tg-0pky">Username</th>
-                <th class="tg-0lax">First Name</th>
-                <th class="tg-0lax">Last Name</th>
-                <th class="tg-0lax">Email</th>
-                <th class="tg-0lax">Delete</th>
-                <th class="tg-0lax">Edit</th>
-            </tr>
-            <tr>
-                <td class="tg-0lax">${user}</td>
-                <td class="tg-0lax">${fname}</td>
-                <td class="tg-0lax">${lname}</td>
-                <td class="tg-0lax">${email}</td>
-                <td class="tg-0lax">
-                    <input type="submit" value="Delete"/></td>
-                <td class="tg-0lax">
-                    <input type="submit" value="Edit"/></td>
-            </tr>
-        </table>
-
-        <h3>Add User</h3>
-        Username: <input type="text" name="userName"/>
-        <br/>
-        First Name: <input type="text" name="firstName"/>
-        <br/>
-        Last Name: <input type="text" name="lastName"/>
-        <br/>
-        Password: <input type="password" name="password"/>
-        <br/>
-        Email: <input type="text" name="email"/>
-        <br/>
-        <input type="submit" value="Save"/>
+            <h3>Users</h3>
+            <table class="tg">
+                <tr>
+                    <th class="tg-0pky">Username</th>
+                    <th class="tg-0lax">First Name</th>
+                    <th class="tg-0lax">Last Name</th>
+                    <th class="tg-0lax">Email</th>
+                    <th class="tg-0lax">Delete</th>
+                    <th class="tg-0lax">Edit</th>
+                </tr>
+                <c:forEach var="User" items="${UserList}" varStatus="status">
+                    <tr>
+                        <td class="tg-0lax">${User.userName}</td>
+                        <td class="tg-0lax">${User.firstName}</td>
+                        <td class="tg-0lax">${User.lastName}</td>
+                        <td class="tg-0lax">${User.email}</td>
+                    <form action="" method="post">
+                        <td class="tg-0lax">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="userName" value="${User.userName}" />
+                            <input type="submit" value="Delete"/></td>
+                        <td class="tg-0lax">
+                    </form>
+                    <form action="" method="post">
+                        <input type="hidden" name="userName" value="${User.userName}"/>
+                        <input type="hidden" name="action" value="edit" />
+                        <input type="submit" value="Edit"/></td>
+                    </form>
+                    </tr>
+                </c:forEach>  
+            </table>
+        </br>           
+        <form action="" method="POST">
+            <h3>Add User</h3>
+            Username: <input type="text" name="userName" value="${userName1}"/>
+            <br/>
+            First Name: <input type="text" name="firstName" value="${firstName1}"/>
+            <br/>
+            Last Name: <input type="text" name="lastName" value="${lastName1}"/>
+            <br/>
+            Password: <input type="password" name="password" value="${password1}"/>
+            <br/>
+            Email: <input type="text" name="email" value="${email1}"/>
+            <br/>
+            <input type="hidden" name="action" value="save">
+            <input type="submit" value="Save"/>
         <form/>
-        <br/>
-    </body>
+    <br/>
+</body>
 </html>
