@@ -48,16 +48,16 @@
             </table>
         </br>           
         <form action="" method="POST">
-            <h3>Add User</h3>
-            Username: <input type="text" name="userName" value="${userName1}"/>
+            <h3>${Heading}</h3>
+            Username: <input ${readonly} required type="text" name="userName" value="${userName1}"/>
             <br/>
-            First Name: <input type="text" name="firstName" value="${firstName1}"/>
+            First Name: <input required type="text" name="firstName" value="${firstName1}"/>
             <br/>
-            Last Name: <input type="text" name="lastName" value="${lastName1}"/>
+            Last Name: <input required type="text" name="lastName" value="${lastName1}"/>
             <br/>
-            Password: <input type="password" name="password" value="${password1}"/>
+            Password: <input required type="text" name="password" value="${password1}"/>
             <br/>
-            Email: <input type="text" name="email" value="${email1}"/>
+            Email: <input required type="email" name="email" value="${email1}"/>
             <br/>
             <input type="hidden" name="action" value="save">
             <input type="submit" value="Save"/>

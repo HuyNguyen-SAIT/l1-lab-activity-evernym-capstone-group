@@ -1,10 +1,10 @@
 -- Author: Rocky Leishman 
 
-DROP DATABASE IF EXISTS notes;
+DROP DATABASE IF EXISTS notesdb;
 
-CREATE DATABASE notes;
+CREATE DATABASE notesdb;
 
-USE notes;
+USE notesdb;
 
 CREATE TABLE user
 (

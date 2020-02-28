@@ -6,15 +6,11 @@
 package services;
 
 import dataaccess.ConnectionPool;
-import servlets.ManageUsersServlet;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import models.User;
 
 /**
@@ -36,9 +32,9 @@ public class UserService
             
             PreparedStatement ps = connection.prepareStatement(preparedQuery);
             ps.setString(1, username);
-            ps.setString(2, firstname);
-            ps.setString(3, lastname);
-            ps.setString(4, password);
+            ps.setString(2, password);
+            ps.setString(3, firstname);
+            ps.setString(4, lastname);
             ps.setString(5, email);
 
             int rows = ps.executeUpdate();
